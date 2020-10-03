@@ -1,10 +1,12 @@
 class MassagesController < ApplicationController
+    before_action :set_massage, only: [:show, :edit, :update, :destroy]
+    
+    
     def index
         @massages  = Massage.all
     end
     
     def show
-        @massage = Massage.find(params[:id])
     end
     
     def new
@@ -24,12 +26,9 @@ class MassagesController < ApplicationController
     end
     
     def edit
-        @massage = Massage.find(params[:id])
     end
     
     def update
-        @massage = Massage.find(params[:id])
-        
         if 
             @massage.upgrade(massage_params)
             flash[:success] = "Massage は正常に更新されました"
@@ -41,7 +40,7 @@ class MassagesController < ApplicationController
     end
     
     def destroy
-        @massage = Massage.find(params[:id])
+        set_massage
         @massage.destroy
         
         flash[:success] = "Massage は正常に削除されました"
@@ -50,6 +49,10 @@ class MassagesController < ApplicationController
     
     private
     
+    def set_massage
+        @massage = Massage.find(params[:id])
+    end
+        
     # Strong Parameter
     def massage_params
         params.require(:massage).pemit(:content)
