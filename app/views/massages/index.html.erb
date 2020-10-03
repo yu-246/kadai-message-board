@@ -2,7 +2,7 @@
 
 <ul>
     <% @massages.each do |massage| %>
-     <li><%= link_to massage.id, massage %> : <%= massage.content %></li>
+     <li><%= link_to massage.id, massage %> : <%= massage.title %> &gt; <%= massage.content %></li>
     <% end %>
 </ul>
 

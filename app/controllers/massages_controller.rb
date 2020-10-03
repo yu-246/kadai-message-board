@@ -55,6 +55,6 @@ class MassagesController < ApplicationController
         
     # Strong Parameter
     def massage_params
-        params.require(:massage).permit(:content)
+        params.require(:massage).permit(:content, :title)
     end
 end

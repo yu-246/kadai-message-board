@@ -1,7 +1,8 @@
 <h1>id: <%= @massage.id %> のメッセージ詳細ページ</h1>
 
-<p><%= @massage.content %></p>
+<p>タイトル: <%= @massage.title %></p>
+<p>メッセージ: <%= @massage.content %></p>
 
 <%= link_to "一覧に戻る", massages_path %>
-<%= link_to "このメッセージを編集する", edit_massage_ath(@massage) %>
+<%= link_to "このメッセージを編集する", edit_massage_path(@massage) %>
 <%= link_to "このメッセージを削除する", @massage, method: :delete, data: { confirm: "本当に削除してよろしいでしょうか？" } %>
