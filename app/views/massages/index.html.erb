@@ -5,5 +5,6 @@
      <li><%= link_to massage.id, massage %> : <%= massage.title %> &gt; <%= massage.content %></li>
     <% end %>
 </ul>
+<%= paginate @massages %>
 
 <%= link_to '新規メッセージの投稿', new_massage_path %>

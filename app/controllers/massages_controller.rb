@@ -3,7 +3,7 @@ class MassagesController < ApplicationController
     
     
     def index
-        @massages  = Massage.all
+        @massages  = Massage.order(id: :desc).page(params[:page]).per(3)
     end
     
     def show
