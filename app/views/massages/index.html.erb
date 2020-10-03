@@ -1,0 +1,9 @@
+<h1>メッセージ一覧</h1>
+
+<ul>
+    <% @massages.each do |massage| %>
+     <li><%= link_to massage.id, massage %> : <%= massage.content %></li>
+    <% end %>
+</ul>
+
+<%= link_to '新規メッセージの投稿', new_massage_path %>
