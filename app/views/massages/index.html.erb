@@ -1,10 +1,27 @@
 <h1>メッセージ一覧</h1>
 
-<ul>
-    <% @massages.each do |massage| %>
-     <li><%= link_to massage.id, massage %> : <%= massage.title %> &gt; <%= massage.content %></li>
-    <% end %>
-</ul>
-<%= paginate @massages %>
+<% if @massages.any? %>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>タイトル</th>
+                <th>メッセージ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @massages.each do |massage| %>
+                <tr>
+                    <td><%= link_to massage.id, massage %></td>
+                    <td><%= massage.title %></td>
+                    <td><%= massage.content %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <div>
+        <%= paginate @massages %>
+    </div>
+<% end %>
 
-<%= link_to '新規メッセージの投稿', new_massage_path %>
+<%= link_to '新規メッセージの投稿', new_massage_path, class: "btn btn-primary" %>
