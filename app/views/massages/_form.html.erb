@@ -1,10 +1,10 @@
 <div class="row">
   <div class="col-6">
-    <%= form_with(model: massage, local: true) do |f| %>
-      <% if massage.errors.any? %>
+    <%= form_with(model: message, local: true) do |f| %>
+      <% if message.errors.any? %>
         <div id="error_explanation" class="alert alert-warning">
           <ul class="mb-0">
-            <% massage.errors.full_messages.each do |msg| %>
+            <% message.errors.full_massages.each do |msg| %>
               <li><%= msg %></li>
             <% end %>
           </ul>
@@ -14,16 +14,15 @@
 
       <div class="form-group">
         <%= f.label :title, 'タイトル' %>
-        <%= f.text_field :title, class: "form-control" %>
+        <%= f.text_field :title, class: 'form-control' %>
       </div>
- 
-      <div class-"form-grouo">
-        <%= f.label :content, 'メッセージ' %>
-         <%= f.text_field :content, class: "form-control" %>
-      </div>
- 
 
-      <%= f.submit '投稿', class: "btn btn-primary" %>
+      <div class="form-group">
+        <%= f.label :content, 'メッセージ' %>
+        <%= f.text_field :content, class: 'form-control' %>
+      </div>
+
+      <%= f.submit '投稿', class: 'btn btn-primary' %>
     <% end %>
   </div>
 </div>
